@@ -2,6 +2,8 @@ package com.coderpig.drysisters;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.ImageView;
@@ -13,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * 描述：
+ * 描述：加载网络图片的类
  *
  * @author coder-pig： 2016/08/05 14:34
  */
@@ -38,10 +40,15 @@ public class PictureLoader {
     public void load(ImageView loadImg, String imgUrl) {
         this.loadImg = loadImg;
         this.imgUrl = imgUrl;
+        Drawable drawable = loadImg.getDrawable();
+        if(drawable != null && drawable instanceof BitmapDrawable) {
+            Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
+            if(bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+        }
         new Thread(runnable).start();
     }
-
-
 
     Runnable runnable = new Runnable() {
         @Override
