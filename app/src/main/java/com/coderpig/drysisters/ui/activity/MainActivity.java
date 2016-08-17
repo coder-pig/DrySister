@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.coderpig.drysisters.R;
 import com.coderpig.drysisters.bean.entity.Sister;
+import com.coderpig.drysisters.imgloader.SisterLoader;
 import com.coderpig.drysisters.network.SisterApi;
 import com.coderpig.drysisters.imgloader.PictureLoader;
 
@@ -25,12 +26,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private PictureLoader loader;
     private SisterApi sisterApi;
     private SisterTask sisterTask;
+    private SisterLoader mLoader;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sisterApi = new SisterApi();
         loader = new PictureLoader();
+        mLoader = SisterLoader.getInstance(MainActivity.this);
         initData();
         initUI();
     }
@@ -55,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (curPos > 9) {
                         curPos = 0;
                     }
-                    loader.load(showImg, data.get(curPos).getUrl());
+//                    loader.load(showImg, data.get(curPos).getUrl());
+                    mLoader.bindBitmap(data.get(curPos).getUrl(),showImg,400,400);
                     curPos++;
                 }
                 break;
@@ -94,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        sisterTask.cancel(true);
+        if(sisterTask != null) {
+            sisterTask.cancel(true);
+        }
     }
 }
