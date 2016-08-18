@@ -44,6 +44,7 @@ public class SisterLoader {
     private MemoryCacheHelper mMemoryHelper;
     private DiskCacheHelper mDiskHelper;
 
+    /** 线程工厂创建线程 */
     private static final ThreadFactory mFactory = new ThreadFactory() {
         private final AtomicInteger mCount = new AtomicInteger(1);
         @Override
@@ -52,6 +53,7 @@ public class SisterLoader {
         }
     };
 
+    /** 线程池管理线程*/
     public static final Executor THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(
             CORE_POOL_SIZE, MAXIMUM_POOL_SIZE,
             KEEP_ALIVE, TimeUnit.SECONDS,
