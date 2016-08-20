@@ -3,12 +3,14 @@ package com.coderpig.drysisters.ui.activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.coderpig.drysisters.R;
 import com.coderpig.drysisters.bean.entity.Sister;
+import com.coderpig.drysisters.db.SisterDBHelper;
 import com.coderpig.drysisters.imgloader.SisterLoader;
 import com.coderpig.drysisters.network.SisterApi;
 import com.coderpig.drysisters.imgloader.PictureLoader;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SisterApi sisterApi;
     private SisterTask sisterTask;
     private SisterLoader mLoader;
+    private SisterDBHelper mDbHelper;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +37,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sisterApi = new SisterApi();
         loader = new PictureLoader();
         mLoader = SisterLoader.getInstance(MainActivity.this);
+        mDbHelper = SisterDBHelper.getInstance();
         initData();
         initUI();
     }
 
     private void initData() {
         data = new ArrayList<>();
+
     }
 
     private void initUI() {
@@ -77,7 +82,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         protected ArrayList<Sister> doInBackground(Void... params) {
-            return sisterApi.fetchSister(10,page);
+            ArrayList<Sister> result = new ArrayList<>();
+            Log.v("MainActivity",mDbHelper.getSistersCount() + "");
+            if(mDbHelper.getSistersCount() < page * 10) {
+                result = sisterApi.fetchSister(10,page);
+                mDbHelper.insertSisters(data);
+            } else {
+                result.clear();
+                result.addAll(mDbHelper.getSistersLimit(page,10));
+            }
+            return result;
         }
 
         @Override
@@ -85,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             super.onPostExecute(sisters);
             data.clear();
             data.addAll(sisters);
+            mDbHelper.insertSisters(sisters);
             page++;
         }
 
@@ -94,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             sisterTask = null;
         }
     }
+
 
     @Override
     protected void onDestroy() {
