@@ -74,8 +74,10 @@ public class NetworkHelper {
             e.printStackTrace();
         } finally {
             try {
-                in.close();
-                out.close();
+                if (in != null && out != null) {
+                    in.close();
+                    out.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

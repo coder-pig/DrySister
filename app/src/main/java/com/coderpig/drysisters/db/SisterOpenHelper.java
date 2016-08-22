@@ -14,7 +14,6 @@ public class SisterOpenHelper extends SQLiteOpenHelper{
     private static final String DB_NAME = "sister.db";  //数据库名
     private static final int DB_VERSION = 1;    //数据库版本号
 
-
     public SisterOpenHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -22,7 +21,8 @@ public class SisterOpenHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTableSql = "CREATE TABLE IF NOT EXISTS " + TableDefine.TABLE_FULI + " ("
-                + TableDefine.COLUMN_FULI_ID + " PRIMARY KEY, "
+                + TableDefine.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + TableDefine.COLUMN_FULI_ID + " TEXT, "
                 + TableDefine.COLUMN_FULI_CREATEAT + " TEXT, "
                 + TableDefine.COLUMN_FULI_DESC + " TEXT, "
                 + TableDefine.COLUMN_FULI_PUBLISHEDAT + " TEXT, "
@@ -36,7 +36,5 @@ public class SisterOpenHelper extends SQLiteOpenHelper{
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { }
 }

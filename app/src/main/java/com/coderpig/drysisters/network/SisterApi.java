@@ -41,7 +41,7 @@ public class SisterApi {
                 String result = new String(data, "UTF-8");
                 sisters = parseSister(result);
             } else {
-                Log.e(TAG,"请求失败：" + code);
+                Log.e(TAG, "请求失败：" + code);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,7 +67,7 @@ public class SisterApi {
             sister.setSource(results.getString("source"));
             sister.setType(results.getString("type"));
             sister.setUrl(results.getString("url"));
-            sister.setUsed(results.getBoolean("used")?1:0);
+            sister.setUsed(results.getBoolean("used") ? 1 : 0);
             sister.setWho(results.getString("who"));
             sisters.add(sister);
         }
@@ -80,7 +80,7 @@ public class SisterApi {
     public byte[] readFromStream(InputStream inputStream) throws Exception {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         byte[] buffer = new byte[1024];
-        int len ;
+        int len;
         while ((len = inputStream.read(buffer)) != -1) {
             outputStream.write(buffer, 0, len);
         }

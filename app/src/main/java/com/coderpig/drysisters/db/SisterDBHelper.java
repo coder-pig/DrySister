@@ -116,11 +116,11 @@ public class SisterDBHelper {
     }
 
     /** 查询当前表中有多少个妹子 */
-    public long getSistersCount() {
+    public int getSistersCount() {
         db = getReadableDB();
-        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM" + TableDefine.TABLE_FULI,null);
+        Cursor cursor = db.rawQuery("SELECT COUNT (*) FROM " + TableDefine.TABLE_FULI,null);
         cursor.moveToFirst();
-        long count = cursor.getLong(0);
+        int count = cursor.getInt(0);
         Log.v(TAG,"count：" + count);
         closeIO(cursor);
         return count;
@@ -138,7 +138,7 @@ public class SisterDBHelper {
                     TableDefine.COLUMN_FULI_SOURCE, TableDefine.COLUMN_FULI_TYPE,
                     TableDefine.COLUMN_FULI_URL, TableDefine.COLUMN_FULI_USED,
                     TableDefine.COLUMN_FULI_WHO,
-            },null,null,null,null,"time DESC",startPos + "," + limit);
+            },null,null,null,null,TableDefine.COLUMN_ID,startPos + "," + limit);
             while (cursor.moveToNext()) {
                 Sister sister = new Sister();
                 sister.set_id(cursor.getString(cursor.getColumnIndex(TableDefine.COLUMN_FULI_ID)));
@@ -153,6 +153,28 @@ public class SisterDBHelper {
             }
             closeIO(cursor);
         }
+        return sisters;
+    }
+
+    /** 查询所有妹子 */
+    public List<Sister> getAllSisters() {
+        db = getReadableDB();
+        List<Sister> sisters = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TableDefine.TABLE_FULI,null);
+        cursor.moveToFirst();
+        while (cursor.moveToNext()) {
+            Sister sister = new Sister();
+            sister.set_id(cursor.getString(cursor.getColumnIndex(TableDefine.COLUMN_FULI_ID)));
+            sister.setCreateAt(cursor.getString(cursor.getColumnIndex(TableDefine.COLUMN_FULI_CREATEAT)));
+            sister.setDesc(cursor.getString(cursor.getColumnIndex(TableDefine.COLUMN_FULI_DESC)));
+            sister.setPublishedAt(cursor.getString(cursor.getColumnIndex(TableDefine.COLUMN_FULI_PUBLISHEDAT)));
+            sister.setSource(cursor.getString(cursor.getColumnIndex(TableDefine.COLUMN_FULI_SOURCE)));
+            sister.setType(cursor.getString(cursor.getColumnIndex(TableDefine.COLUMN_FULI_TYPE)));
+            sister.setUrl(cursor.getString(cursor.getColumnIndex(TableDefine.COLUMN_FULI_URL)));
+            sister.setUsed(cursor.getInt(cursor.getColumnIndex(TableDefine.COLUMN_FULI_USED)));
+            sisters.add(sister);
+        }
+        closeIO(cursor);
         return sisters;
     }
 

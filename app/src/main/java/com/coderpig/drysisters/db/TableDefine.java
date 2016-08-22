@@ -7,6 +7,7 @@ package com.coderpig.drysisters.db;
  */
 public class TableDefine {
     public static final String TABLE_FULI = "fuli";
+    public static final String COLUMN_ID = "id";
     public static final String COLUMN_FULI_ID = "_id";
     public static final String COLUMN_FULI_CREATEAT = "createAt";
     public static final String COLUMN_FULI_DESC = "desc";
