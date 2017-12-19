@@ -2,28 +2,34 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <Button
         android:id="@+id/btn_previous"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:visibility="invisible"
-        android:text="上一个"/>
+        android:text="@string/previous_one"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/btn_previous"
         android:layout_toRightOf="@id/btn_previous"
-        android:text="下一个"/>
+        android:text="@string/next_one"/>
 
     <ImageView
         android:id="@+id/img_show"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_previous"/>
+        android:adjustViewBounds="true"/>
 
 </RelativeLayout>
+
+

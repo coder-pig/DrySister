@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DrySisters</string>
+    <string name="next_one">下一个</string>
+    <string name="previous_one">上一个</string>
 </resources>

@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class SisterApi {
     private static final String TAG = "Network";
-    private static final String BASE_URL = "http://gank.io/api/data/福利/";
+    private static final String BASE_URL = "http://gank.io/api/data/%e7%a6%8f%e5%88%a9/";
 
     /**
      * 查询妹子信息
