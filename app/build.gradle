@@ -12,7 +12,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
     defaultConfig {
-        applicationId "coderpig.com.drysisters"
+        applicationId "com.coderpig.drysisters"
         minSdkVersion 18
         targetSdkVersion 26
         versionCode 1
