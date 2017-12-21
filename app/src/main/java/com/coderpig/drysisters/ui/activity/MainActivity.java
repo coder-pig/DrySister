@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initUI() {
-        previousBtn = (Button) findViewById(R.id.btn_previous);
-        nextBtn = (Button) findViewById(R.id.btn_next);
-        showImg = (ImageView) findViewById(R.id.img_show);
+        previousBtn = findViewById(R.id.btn_previous);
+        nextBtn = findViewById(R.id.btn_next);
+        showImg = findViewById(R.id.img_show);
 
         previousBtn.setOnClickListener(this);
         nextBtn.setOnClickListener(this);
@@ -90,8 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private class SisterTask extends AsyncTask<Void, Void, ArrayList<Sister>> {
 
-        public SisterTask() {
-        }
+        SisterTask() {}
 
         @Override
         protected ArrayList<Sister> doInBackground(Void... params) {
