@@ -14,3 +14,10 @@
 - 4.添加数据缓存，使用SQLite存储后台返回的数据：[编码记录][4] —— 2016.8.22
 - 5.代码回顾，切换到AS3.0上代码调整，编写日志工具类：[编码记录][5] —— 2017.12.20
 - 6.图标制作，代码混淆，签名打包，APK瘦身，应用发布: [编码记录][6] —— 2017.12.21
+
+  [1]: http://blog.csdn.net/coder_pig/article/details/52135399
+  [2]: http://blog.csdn.net/coder_pig/article/details/52143980
+  [3]: http://blog.csdn.net/coder_pig/article/details/52235436
+  [4]: http://blog.csdn.net/coder_pig/article/details/52278625
+  [5]: http://blog.csdn.net/coder_pig/article/details/78855294
+  [6]: http://blog.csdn.net/coder_pig/article/details/78868926
