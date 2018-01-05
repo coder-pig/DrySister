@@ -10,8 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
@@ -23,9 +22,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    private void initData() {
-
-    }
-
+    private void initData() { }
 
 }
