@@ -3,16 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/first_group"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:title="看小姐姐" />
+            android:id="@+id/nav_xiaojiejie"
+            android:icon="@drawable/ic_menu_meinv"
+            android:title="@string/menu_browse_xiaojiejie" />
         <item
-            android:id="@+id/nav_gallery"
-            android:title="看天气" />
+            android:id="@+id/nav_weather"
+            android:icon="@drawable/ic_menu_weather"
+            android:title="@string/menu_browse_weather" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:title="小工具" />
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_menu_news"
+            android:title="@string/menu_browse_news" />
+        <item
+            android:id="@+id/nav_tools"
+            android:icon="@drawable/ic_menu_tools"
+            android:title="@string/menu_little_tools" />
+    </group>
+
+
+    <group
+        android:id="@+id/second_group"
+        android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_menu_setting"
+            android:title="@string/menu_setting" />
+
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_about"
+            android:title="@string/menu_about" />
+
     </group>
 
 </menu>
+
