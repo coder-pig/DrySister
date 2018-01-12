@@ -14,7 +14,7 @@ public class Sister {
     private String source;
     private String type;
     private String url;
-    private int used;
+    private boolean used;
     private String who;
 
     public String getType() {
@@ -73,11 +73,11 @@ public class Sister {
         this.url = url;
     }
 
-    public int getUsed() {
+    public boolean getUsed() {
         return used;
     }
 
-    public void setUsed(int used) {
+    public void setUsed(boolean used) {
         this.used = used;
     }
 

@@ -18,7 +18,7 @@ public class DrySisterApp extends Application {
     public void onCreate() {
         super.onCreate();
         context = this;
-        CrashHandler.getInstance().init(this);
+//        CrashHandler.getInstance().init(this);
     }
 
     public static DrySisterApp getContext() {

@@ -2,9 +2,11 @@ package com.coderpig.drysisters.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.coderpig.drysisters.R;
+import com.coderpig.drysisters.ui.fragment.MeiziFragment;
+import com.coderpig.drysisters.ui.fragment.NewsFragment;
+import com.coderpig.drysisters.ui.fragment.WeatherFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -21,10 +26,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer_layout;
     private NavigationView nav_view;
     private FloatingActionButton fab_github;
+    private ConstraintLayout cly_main_content;
+    private FragmentManager fragmentManager;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fragmentManager = getSupportFragmentManager();
         initView();
         initData();
     }
@@ -34,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nav_view = findViewById(R.id.nav_view);
         drawer_layout = findViewById(R.id.drawer_layout);
         fab_github = findViewById(R.id.fab_github);
+        cly_main_content = findViewById(R.id.cly_main_content);
 
         setSupportActionBar(toolbar);
         nav_view.setItemIconTintList(null);
@@ -59,10 +68,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_xiaojiejie:
+                fragmentManager.beginTransaction().replace(R.id.cly_main_content, MeiziFragment.newInstance()).commit();
                 break;
             case R.id.nav_weather:
+                fragmentManager.beginTransaction().replace(R.id.cly_main_content, WeatherFragment.newInstance()).commit();
                 break;
             case R.id.nav_news:
+                fragmentManager.beginTransaction().replace(R.id.cly_main_content, NewsFragment.newInstance()).commit();
                 break;
             case R.id.nav_tools:
                 break;
