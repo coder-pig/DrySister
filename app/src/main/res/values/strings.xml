@@ -14,4 +14,7 @@
     <string name="menu_setting">设置</string>
     <string name="menu_about">关于</string>
 
+    <!-- Working -->
+    <string name="working">前方正在施工&#8230;</string>
+
 </resources>
