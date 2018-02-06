@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+def depend_android = rootProject.ext.depend_android
+def depend_lib = rootProject.ext.depend_lib
+
+
 android {
     signingConfigs {
         release {
@@ -9,12 +13,12 @@ android {
             keyPassword '654321'
         }
     }
-    compileSdkVersion 27
-    buildToolsVersion "26.0.2"
+    compileSdkVersion depend_android["compileSdkVersion"]
+    buildToolsVersion depend_android["buildToolsVersion"]
     defaultConfig {
         applicationId "com.coderpig.drysisters"
-        minSdkVersion 21
-        targetSdkVersion 27
+        minSdkVersion depend_android["minSdkVersion"]
+        targetSdkVersion depend_android["targetSdkVersion"]
         versionCode 2
         versionName "1.0.1"
     }
@@ -25,8 +29,8 @@ android {
         }
         release {
             signingConfig signingConfigs.release
-            minifyEnabled true
-            shrinkResources true
+//            minifyEnabled true
+//            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,14 +42,21 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-    implementation 'com.android.support:design:27.0.2'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
-    implementation 'com.github.bumptech.glide:glide:4.5.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
-    implementation 'com.google.code.gson:gson:2.8.2'
+    testImplementation depend_lib["junit"]
+    implementation depend_lib["appcompat-v7"]
+    implementation depend_lib["design"]
+    implementation depend_lib["constraint-layout"]
+    implementation depend_lib["phoneView"]
+    implementation depend_lib["rxjava"]
+    implementation depend_lib["rxandroid"]
+    implementation depend_lib["okhttp"]
+    implementation depend_lib["okhttp-interceptor"]
+    implementation depend_lib["retrofit"]
+    implementation depend_lib["glide"]
+    annotationProcessor depend_lib["glide-compiler"]
+
+
+
 }
 
 
