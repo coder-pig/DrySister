@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
  * @author jay on 2018/1/12 12:19
  */
 
-public class MeiziFragment extends Fragment implements View.OnClickListener {
+public class LittleSisterFragment extends Fragment implements View.OnClickListener {
 
     private Button previousBtn;
     private Button nextBtn;
@@ -42,17 +43,25 @@ public class MeiziFragment extends Fragment implements View.OnClickListener {
     private SisterLoader mLoader;
     private SisterDBHelper mDbHelper;
     private Context mContext;
+    private TabLayout tl_little_sister;
 
-    public static MeiziFragment newInstance() {
-        MeiziFragment fragment = new MeiziFragment();
+    public static LittleSisterFragment newInstance() {
+        LittleSisterFragment fragment = new LittleSisterFragment();
         return fragment;
     }
 
     @Nullable @Override public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_meizi, container, false);
+        View view = inflater.inflate(R.layout.fragment_little_sister, container, false);
         previousBtn = view.findViewById(R.id.btn_previous );
         nextBtn = view.findViewById(R.id.btn_next);
         showImg = view.findViewById(R.id.img_show);
+        tl_little_sister = view.findViewById(R.id.tl_little_sister);
+        tl_little_sister.addTab(tl_little_sister.newTab().setText("Gank.io"));
+        tl_little_sister.addTab(tl_little_sister.newTab().setText("煎蛋"));
+        tl_little_sister.addTab(tl_little_sister.newTab().setText("花瓣"));
+        tl_little_sister.addTab(tl_little_sister.newTab().setText("BcyCos"));
+        tl_little_sister.addTab(tl_little_sister.newTab().setText("图虫"));
+        tl_little_sister.addTab(tl_little_sister.newTab().setText("妹子图"));
         previousBtn.setOnClickListener(this);
         nextBtn.setOnClickListener(this);
         return view;

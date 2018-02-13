@@ -3,44 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group
-        android:id="@+id/first_group"
-        android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_xiaojiejie"
-            android:icon="@drawable/ic_menu_meinv"
-            android:title="@string/menu_browse_xiaojiejie" />
-        <item
-            android:id="@+id/nav_weather"
-            android:icon="@drawable/ic_menu_weather"
-            android:title="@string/menu_browse_weather" />
+    <item android:title="@string/menu_see">
+        <menu>
+            <item
+                android:id="@+id/nav_see_little_sister"
+                android:icon="@drawable/ic_menu_sister"
+                android:title="@string/menu_see_little_sister" />
+            <item
+                android:id="@+id/nav_see_news"
+                android:icon="@drawable/ic_menu_news"
+                android:title="@string/menu_see_news" />
+        </menu>
+    </item>
 
-        <item
-            android:id="@+id/nav_news"
-            android:icon="@drawable/ic_menu_news"
-            android:title="@string/menu_browse_news" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_tools"
-            android:title="@string/menu_little_tools" />
-    </group>
+    <item android:title="@string/menu_use" >
+        <menu>
+            <item
+                android:id="@+id/nav_use_check_weather"
+                android:icon="@drawable/ic_menu_weather"
+                android:title="@string/menu_use_check_weather" />
+            <item
+                android:id="@+id/nav_use_check_subway"
+                android:icon="@drawable/ic_menu_subway"
+                android:title="@string/menu_use_check_subway" />
+            <item
+                android:id="@+id/nav_use_tools"
+                android:icon="@drawable/ic_menu_tools"
+                android:title="@string/menu_use_tools" />
+        </menu>
+    </item>
 
-
-    <group
-        android:id="@+id/second_group"
-        android:checkableBehavior="none">
-
-        <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_menu_setting"
-            android:title="@string/menu_setting" />
-
-        <item
-            android:id="@+id/nav_about"
-            android:icon="@drawable/ic_menu_about"
-            android:title="@string/menu_about" />
-
-    </group>
+    <item android:title="@string/menu_else" >
+        <menu>
+            <item
+                android:id="@+id/nav_else_setting"
+                android:icon="@drawable/ic_menu_setting"
+                android:title="@string/menu_else_setting" />
+            <item
+                android:id="@+id/nav_else_about"
+                android:icon="@drawable/ic_menu_about"
+                android:title="@string/menu_else_about" />
+        </menu>
+    </item>
 
 </menu>
 

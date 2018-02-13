@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">DrySisters</string>
+    <string name="dry">Dry</string>
     <string name="next_one">下一个</string>
     <string name="previous_one">上一个</string>
     <string name="drawer_open">抽屉打开</string>
@@ -7,6 +8,20 @@
     <string name="tip">天天吃肉吃不胖，天天DrySister身体棒</string>
 
     <!-- 抽屉菜单 -->
+    <string name="menu_see">看看</string>
+    <string name="menu_see_little_sister">看小姐姐</string>
+    <string name="menu_see_news">读书看报</string>
+
+    <string name="menu_use">用用</string>
+    <string name="menu_use_check_weather">查查天气</string>
+    <string name="menu_use_check_subway">查查地铁</string>
+    <string name="menu_use_tools">小工具箱</string>
+
+    <string name="menu_else">其他</string>
+    <string name="menu_else_setting">设置</string>
+    <string name="menu_else_about">关于</string>
+
+
     <string name="menu_browse_xiaojiejie">看小姐姐</string>
     <string name="menu_browse_weather">看天气</string>
     <string name="menu_browse_news">看资讯</string>

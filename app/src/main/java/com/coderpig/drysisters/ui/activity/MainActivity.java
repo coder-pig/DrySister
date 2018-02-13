@@ -1,11 +1,10 @@
 package com.coderpig.drysisters.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,11 +12,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.coderpig.drysisters.DryConstant;
 import com.coderpig.drysisters.R;
-import com.coderpig.drysisters.ui.fragment.MeiziFragment;
+import com.coderpig.drysisters.ui.fragment.LittleSisterFragment;
 import com.coderpig.drysisters.ui.fragment.NewsFragment;
+import com.coderpig.drysisters.ui.fragment.SubwayFragment;
+import com.coderpig.drysisters.ui.fragment.ToolsFragment;
 import com.coderpig.drysisters.ui.fragment.WeatherFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,14 +26,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private DrawerLayout drawer_layout;
     private NavigationView nav_view;
-    private FloatingActionButton fab_github;
     private ConstraintLayout cly_main_content;
-    private FragmentManager fragmentManager;
+    private FragmentManager mFgManager;
 
-    @Override protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentManager = getSupportFragmentManager();
+        mFgManager = getSupportFragmentManager();
         initView();
         initData();
     }
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         nav_view = findViewById(R.id.nav_view);
         drawer_layout = findViewById(R.id.drawer_layout);
-        fab_github = findViewById(R.id.fab_github);
         cly_main_content = findViewById(R.id.cly_main_content);
 
         setSupportActionBar(toolbar);
@@ -52,42 +52,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawer_layout, toolbar, R.string.drawer_open, R.string.drawer_close);
         drawer_layout.addDrawerListener(toggle);
         toggle.syncState();
-
-        fab_github.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, getResources().getString(R.string.tip), Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
     }
 
-    private void initData() { }
+    private void initData() {
+    }
 
-    @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_xiaojiejie:
-                fragmentManager.beginTransaction().replace(R.id.cly_main_content, MeiziFragment.newInstance()).commit();
+            case R.id.nav_see_little_sister:
+                if (mFgManager.findFragmentByTag(DryConstant.FG_LITTLE_SISTER) == null) {
+                    mFgManager.beginTransaction().replace(R.id.cly_main_content,
+                            LittleSisterFragment.newInstance(), DryConstant.FG_LITTLE_SISTER).commit();
+                }
                 break;
-            case R.id.nav_weather:
-                fragmentManager.beginTransaction().replace(R.id.cly_main_content, WeatherFragment.newInstance()).commit();
+            case R.id.nav_see_news:
+                if (mFgManager.findFragmentByTag(DryConstant.FG_NEWS) == null) {
+                    mFgManager.beginTransaction().replace(R.id.cly_main_content,
+                            NewsFragment.newInstance(), DryConstant.FG_NEWS).commit();
+                }
                 break;
-            case R.id.nav_news:
-                fragmentManager.beginTransaction().replace(R.id.cly_main_content, NewsFragment.newInstance()).commit();
+            case R.id.nav_use_check_weather:
+                if (mFgManager.findFragmentByTag(DryConstant.FG_WEATHER) == null) {
+                    mFgManager.beginTransaction().replace(R.id.cly_main_content,
+                            WeatherFragment.newInstance(), DryConstant.FG_WEATHER).commit();
+                }
                 break;
-            case R.id.nav_tools:
+            case R.id.nav_use_check_subway:
+                if (mFgManager.findFragmentByTag(DryConstant.FG_SUBWAY) == null) {
+                    mFgManager.beginTransaction().replace(R.id.cly_main_content,
+                            SubwayFragment.newInstance(), DryConstant.FG_SUBWAY).commit();
+                }
                 break;
-            case R.id.nav_setting:
+            case R.id.nav_use_tools:
+                if (mFgManager.findFragmentByTag(DryConstant.FG_TOOLS) == null) {
+                    mFgManager.beginTransaction().replace(R.id.cly_main_content,
+                            ToolsFragment.newInstance(), DryConstant.FG_TOOLS).commit();
+                }
                 break;
-            case R.id.nav_about:
+            case R.id.nav_else_setting:
+                startActivity(new Intent(this, SettingActivity.class));
+                break;
+            case R.id.nav_else_about:
+                startActivity(new Intent(this, AboutActivity.class));
                 break;
         }
         drawer_layout.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    @Override public void onBackPressed() {
+    @Override
+    public void onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START);
         } else {

@@ -1,4 +1,15 @@
-def junitVersion = "4. 0"
+def junitVersion = "4.12"
+def supportVersion = "27.0.2"
+def constraintVersion = "1.0.2"
+def phoneViewVersion = "2.1.3"
+def slidrVersion = "2.0.6"
+def roundImageViewVersion = "2.3.0"
+def rxJavaVersion = "2.1.9"
+def rxAndroidVersion = "2.0.1"
+def okhttpVersion = "3.9.1"
+def retrofitVersion = "2.3.0"
+def glideVersion = "4.6.1"
+def timberViersion = "4.6.1"
 
 
 project.ext {
@@ -17,6 +28,7 @@ project.ext {
             "constraint-layout" : "com.android.support.constraint:constraint-layout:${constraintVersion}",
             "phoneView"         : "com.github.chrisbanes:PhotoView:${phoneViewVersion}",
             "slidr"             : "com.r0adkll:slidableactivity:${slidrVersion}",
+            "roundedimageview"  : "com.makeramen:roundedimageview:${roundImageViewVersion}",
 
             "rxjava"            : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
             "rxandroid"         : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",

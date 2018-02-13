@@ -47,6 +47,8 @@ dependencies {
     implementation depend_lib["design"]
     implementation depend_lib["constraint-layout"]
     implementation depend_lib["phoneView"]
+    implementation depend_lib["slidr"]
+    implementation depend_lib["roundedimageview"]
     implementation depend_lib["rxjava"]
     implementation depend_lib["rxandroid"]
     implementation depend_lib["okhttp"]
@@ -54,8 +56,7 @@ dependencies {
     implementation depend_lib["retrofit"]
     implementation depend_lib["glide"]
     annotationProcessor depend_lib["glide-compiler"]
-
-
+    implementation depend_lib["timber"]
 
 }
 
