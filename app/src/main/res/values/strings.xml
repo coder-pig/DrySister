@@ -21,15 +21,15 @@
     <string name="menu_else_setting">设置</string>
     <string name="menu_else_about">关于</string>
 
-
-    <string name="menu_browse_xiaojiejie">看小姐姐</string>
-    <string name="menu_browse_weather">看天气</string>
-    <string name="menu_browse_news">看资讯</string>
-    <string name="menu_little_tools">小工具</string>
-    <string name="menu_setting">设置</string>
-    <string name="menu_about">关于</string>
-
     <!-- Working -->
     <string name="working">前方正在施工&#8230;</string>
+
+    <!--网络状态错误-->
+    <string name="network_unconnected">尚未连接网络，请打开网络重新加载！</string>
+    <string name="network_connected_exception">网络连接异常，请稍后重试！</string>
+    <string name="network_socket_time_out">网络请求超时，请检查网络状态！</string>
+    <string name="network_json_syntax_exception">服务器数据异常，请稍候重试！</string>
+    <string name="network_unknown_host">当前网络不可用，请检查网络情况！</string>
+
 
 </resources>

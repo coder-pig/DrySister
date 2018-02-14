@@ -1,7 +1,6 @@
 package com.coderpig.drysisters;
 
 import android.app.Application;
-import android.content.Context;
 
 /**
  * 描述：Application类
@@ -10,15 +9,17 @@ import android.content.Context;
  */
 public class DrySisterApp extends Application {
 
-    private static Context context;
+    private static DrySisterApp context;
 
     @Override
     public void onCreate() {
         super.onCreate();
         context = this;
+        DryInit.initTimber();
+        DryInit.initOKHttp(this);
     }
 
     public static DrySisterApp getContext() {
-        return (DrySisterApp) context;
+        return context;
     }
 }

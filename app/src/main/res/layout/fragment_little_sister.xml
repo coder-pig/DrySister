@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,30 +14,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:tabGravity="center"
         app:tabIndicatorColor="@color/colorPrimaryDark"
         app:tabIndicatorHeight="2dp"
         app:tabMode="scrollable"
-        app:tabGravity = "center"
         app:tabSelectedTextColor="@color/colorPrimaryDark"
         app:tabTextColor="@color/bar_font" />
 
-
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/srl_refresh"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:descendantFocusability="blocksDescendants"
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tl_little_sister">
+        app:layout_constraintTop_toBottomOf="@+id/tl_little_sister" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rec_meizi"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white" />
-
-    </android.support.v4.widget.SwipeRefreshLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_little_sister"
+        app:layout_constraintTop_toTopOf="@id/divider" />
 
 
 </android.support.constraint.ConstraintLayout>

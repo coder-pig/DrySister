@@ -20,6 +20,7 @@ import com.coderpig.drysisters.ui.fragment.NewsFragment;
 import com.coderpig.drysisters.ui.fragment.SubwayFragment;
 import com.coderpig.drysisters.ui.fragment.ToolsFragment;
 import com.coderpig.drysisters.ui.fragment.WeatherFragment;
+import com.coderpig.drysisters.utils.ResUtils;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initData() {
+        mFgManager.beginTransaction().replace(R.id.cly_main_content,
+                LittleSisterFragment.newInstance(), DryConstant.FG_LITTLE_SISTER).commit();
+        toolbar.setTitle(ResUtils.getString(R.string.menu_see_little_sister));
     }
 
     @Override
@@ -64,30 +68,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (mFgManager.findFragmentByTag(DryConstant.FG_LITTLE_SISTER) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             LittleSisterFragment.newInstance(), DryConstant.FG_LITTLE_SISTER).commit();
+                    toolbar.setTitle(ResUtils.getString(R.string.menu_see_little_sister));
                 }
                 break;
             case R.id.nav_see_news:
                 if (mFgManager.findFragmentByTag(DryConstant.FG_NEWS) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             NewsFragment.newInstance(), DryConstant.FG_NEWS).commit();
+                    toolbar.setTitle(ResUtils.getString(R.string.menu_see_news));
                 }
                 break;
             case R.id.nav_use_check_weather:
                 if (mFgManager.findFragmentByTag(DryConstant.FG_WEATHER) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             WeatherFragment.newInstance(), DryConstant.FG_WEATHER).commit();
+                    toolbar.setTitle(ResUtils.getString(R.string.menu_use_check_weather));
                 }
                 break;
             case R.id.nav_use_check_subway:
                 if (mFgManager.findFragmentByTag(DryConstant.FG_SUBWAY) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             SubwayFragment.newInstance(), DryConstant.FG_SUBWAY).commit();
+                    toolbar.setTitle(ResUtils.getString(R.string.menu_use_check_subway));
                 }
                 break;
             case R.id.nav_use_tools:
                 if (mFgManager.findFragmentByTag(DryConstant.FG_TOOLS) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             ToolsFragment.newInstance(), DryConstant.FG_TOOLS).commit();
+                    toolbar.setTitle(ResUtils.getString(R.string.menu_use_tools));
                 }
                 break;
             case R.id.nav_else_setting:

@@ -6,4 +6,5 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="bar_font">#474747</color>
+    <color name="divider">#E5E5E5</color>
 </resources>
