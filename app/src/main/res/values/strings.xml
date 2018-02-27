@@ -31,5 +31,8 @@
     <string name="network_json_syntax_exception">服务器数据异常，请稍候重试！</string>
     <string name="network_unknown_host">当前网络不可用，请检查网络情况！</string>
 
+    <!--刷新提示相关-->
+    <string name="refresh_success">刷新成功！</string>
+    <string name="load_more_num">加载成功，新增%1$d枚%2$s！</string>
 
 </resources>

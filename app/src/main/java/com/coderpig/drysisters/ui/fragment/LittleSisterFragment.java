@@ -49,7 +49,7 @@ public class LittleSisterFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         mContext = getActivity();
         mSubscriptions = new CompositeDisposable();
-        TabFragmentPagerAdapter adapter = new TabFragmentPagerAdapter(getActivity().getSupportFragmentManager());
+        TabFragmentPagerAdapter adapter = new TabFragmentPagerAdapter(this.getChildFragmentManager());
         vp_content.setAdapter(adapter);
         tl_little_sister.setupWithViewPager(vp_content);
     }
