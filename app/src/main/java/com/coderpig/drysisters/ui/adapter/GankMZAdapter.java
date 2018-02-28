@@ -1,6 +1,7 @@
 package com.coderpig.drysisters.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.coderpig.drysisters.R;
 import com.coderpig.drysisters.data.dto.GankMeizi;
+import com.coderpig.drysisters.ui.activity.PictureDetailActivity;
 
 import java.util.ArrayList;
 
@@ -40,15 +42,18 @@ public class GankMZAdapter extends RecyclerView.Adapter<GankMZAdapter.ViewHolder
         mzs.addAll(data);
     }
 
-    @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mz, parent, false));
     }
 
-    @Override public void onBindViewHolder(ViewHolder holder, int position) {
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
         holder.bind(mzs.get(position));
     }
 
-    @Override public int getItemCount() {
+    @Override
+    public int getItemCount() {
         return mzs.size();
     }
 
@@ -67,7 +72,11 @@ public class GankMZAdapter extends RecyclerView.Adapter<GankMZAdapter.ViewHolder
                     .apply(new RequestOptions()
                             .centerCrop())
                     .into(img_content);
-
+            img_content.setOnClickListener(view -> {
+                Intent intent = new Intent(mContext, PictureDetailActivity.class);
+                intent.putExtra("pic_url", data.getUrl());
+                mContext.startActivity(intent);
+            });
         }
     }
 }

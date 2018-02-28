@@ -30,7 +30,7 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_github" />
+        app:srcCompat="@drawable/ic_fab_love" />
 
 
 </android.support.constraint.ConstraintLayout>

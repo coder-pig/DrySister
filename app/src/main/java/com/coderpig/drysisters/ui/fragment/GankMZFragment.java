@@ -81,41 +81,20 @@ public class GankMZFragment extends Fragment {
                     }
                 }
                 if (layoutManager.findFirstVisibleItemPosition() != 0) {
-                    if (fab_top.getVisibility() == View.GONE) {
-                        fab_top.setVisibility(View.VISIBLE);
-                        ViewCompat.animate(fab_top).scaleX(1.0F).scaleY(1.0F).alpha(1.0F)
-                                .setInterpolator(INTERPOLATOR).withLayer().setListener(null).start();
-                    }
+                    fabInAnim();
                 } else {
-                    if (fab_top.getVisibility() == View.VISIBLE) {
-                        ViewCompat.animate(fab_top).scaleX(0.0F).scaleY(0.0F).alpha(0.0F)
-                                .setInterpolator(INTERPOLATOR).withLayer().setListener(new ViewPropertyAnimatorListener() {
-                            @Override
-                            public void onAnimationStart(View view) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(View view) {
-                                fab_top.setVisibility(View.GONE);
-                            }
-
-                            @Override
-                            public void onAnimationCancel(View view) {
-
-                            }
-                        }).start();
-                    }
+                    fabOutAnim();
                 }
             }
         });
         fab_top.setOnClickListener(v -> {
             LinearLayoutManager manager = (LinearLayoutManager) rec_mz.getLayoutManager();
-            //如果超过40项直接跳到开头，避免卡顿
+            //如果超过50项直接跳到开头，不然要滚好久
             if(manager.findFirstVisibleItemPosition() < 50) {
                 rec_mz.smoothScrollToPosition(0);
             } else {
                 rec_mz.scrollToPosition(0);
+                fabOutAnim();
             }
         });
         return view;
@@ -162,5 +141,36 @@ public class GankMZFragment extends Fragment {
         mSubscriptions.add(subscribe);
     }
 
+    /* 悬浮按钮显示动画 */
+    private void fabInAnim() {
+        if (fab_top.getVisibility() == View.GONE) {
+            fab_top.setVisibility(View.VISIBLE);
+            ViewCompat.animate(fab_top).scaleX(1.0F).scaleY(1.0F).alpha(1.0F)
+                    .setInterpolator(INTERPOLATOR).withLayer().setListener(null).start();
+        }
+    }
+
+    /* 悬浮图标隐藏动画 */
+    private void fabOutAnim() {
+        if (fab_top.getVisibility() == View.VISIBLE) {
+            ViewCompat.animate(fab_top).scaleX(0.0F).scaleY(0.0F).alpha(0.0F)
+                    .setInterpolator(INTERPOLATOR).withLayer().setListener(new ViewPropertyAnimatorListener() {
+                @Override
+                public void onAnimationStart(View view) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(View view) {
+                    fab_top.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAnimationCancel(View view) {
+
+                }
+            }).start();
+        }
+    }
 
 }
