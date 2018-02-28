@@ -7,4 +7,7 @@
     <color name="black">#000000</color>
     <color name="bar_font">#474747</color>
     <color name="divider">#E5E5E5</color>
+    <color name="heavy_divider">#EEEEEE</color>
+    <color name="purple">#C89EC4</color>
+    <color name="green">#67D5B5</color>
 </resources>

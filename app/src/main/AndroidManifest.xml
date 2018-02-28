@@ -38,11 +38,13 @@
 
         <activity
             android:name=".ui.activity.SettingActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Slidr.Slidable"/>
 
         <activity
             android:name=".ui.activity.AboutActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Slidr.Slidable"/>
 
     </application>
 
