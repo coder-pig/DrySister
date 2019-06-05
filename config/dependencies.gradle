@@ -14,15 +14,13 @@ def timberViersion = "4.6.1"
 
 project.ext {
     depend_android = [
-            compileSdkVersion: 27,
-            buildToolsVersion: "26.0.2",
+            compileSdkVersion: 28,
             minSdkVersion    : 21,
-            targetSdkVersion : 27,
+            targetSdkVersion : 28,
     ]
 
     depend_lib = [
             "junit"             : "junit:junit:${junitVersion}",
-
             "appcompat-v7"      : "com.android.support:appcompat-v7:${supportVersion}",
             "design"            : "com.android.support:design:${supportVersion}",
             "cardview"          : "com.android.support:cardview-v7:${supportVersion}",
