@@ -12,6 +12,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
@@ -34,17 +35,17 @@
         <activity
             android:name=".ui.activity.PictureDetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Slidr.Slidable"/>
+            android:theme="@style/Theme.Slidr.Slidable" />
 
         <activity
             android:name=".ui.activity.SettingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Slidr.Slidable"/>
+            android:theme="@style/Theme.Slidr.Slidable" />
 
         <activity
             android:name=".ui.activity.AboutActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Slidr.Slidable"/>
+            android:theme="@style/Theme.Slidr.Slidable" />
 
     </application>
 

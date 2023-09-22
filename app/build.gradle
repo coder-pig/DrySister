@@ -42,11 +42,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation depend_lib["junit"]
-    implementation depend_lib["appcompat-v7"]
-    implementation depend_lib["design"]
-    implementation depend_lib["cardview"]
-    implementation depend_lib["constraint-layout"]
     implementation depend_lib["phoneView"]
     implementation depend_lib["slidr"]
     implementation depend_lib["roundedimageview"]
@@ -58,6 +53,9 @@ dependencies {
     implementation depend_lib["converter-gson"]
     implementation depend_lib["rxjava2-adapter"]
     implementation depend_lib["glide"]
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
     annotationProcessor depend_lib["glide-compiler"]
     implementation depend_lib["timber"]
 

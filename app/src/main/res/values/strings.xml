@@ -76,7 +76,7 @@
     </string>
     <string name="about_open_source">用到的开源库(闲了再补充协议)</string>
     <string name="about_open_source_detail">
-         com.android.support:appcompat-v7
+         androidx.appcompat:appcompat
          \ncom.android.support:design
          \ncom.android.support:cardview-v7
          \ncom.android.support.constraint:constraint-layout

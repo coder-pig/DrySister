@@ -9,7 +9,7 @@ import android.util.AttributeSet;
  * @author CoderPig on 2018/02/14 16:25.
  */
 
-public class RatioImageView extends android.support.v7.widget.AppCompatImageView{
+public class RatioImageView extends androidx.appcompat.widget.AppCompatImageView {
     private int originalWidth;
     private int originalHeight;
 
