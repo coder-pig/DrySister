@@ -21,13 +21,13 @@ import com.coderpig.drysisters.R;
 import com.coderpig.drysisters.data.dto.GankMeizi;
 import com.coderpig.drysisters.net.APIService;
 import com.coderpig.drysisters.ui.adapter.GankMZAdapter;
-import com.coderpig.drysisters.utils.ResUtils;
 import com.coderpig.drysisters.utils.RxSchedulers;
-import com.coderpig.drysisters.utils.ToastUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import cn.coderpig.cp_base.utils.ResUtilsKt;
+import cn.coderpig.cp_base.utils.ToastUtilsKt;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -131,11 +131,11 @@ public class GankMZFragment extends Fragment {
                         ArrayList<GankMeizi> results = data.getResults();
                         if (isRefresh) {
                             mAdapter.addAll(results);
-                            ToastUtils.shortToast(ResUtils.getString(R.string.refresh_success));
+                            ToastUtilsKt.shortToast(ResUtilsKt.getTextRes(R.string.refresh_success));
                         } else {
                             mAdapter.loadMore(results);
-                            String msg = String.format(ResUtils.getString(R.string.load_more_num),results.size(),"妹子");
-                            ToastUtils.shortToast(msg);
+                            String msg = String.format(ResUtilsKt.getTextRes(R.string.load_more_num), results.size(), "妹子");
+                            ToastUtilsKt.shortToast(msg);
                         }
                     }
                 }, RxSchedulers::processRequestException);

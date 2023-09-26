@@ -12,7 +12,8 @@ import androidx.fragment.app.Fragment;
 
 import com.coderpig.drysisters.R;
 import com.coderpig.drysisters.utils.PackageUtils;
-import com.coderpig.drysisters.utils.ResUtils;
+
+import cn.coderpig.cp_base.utils.ResUtilsKt;
 
 /**
  * 描述： 关于的Fragment
@@ -42,7 +43,7 @@ public class AboutFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         String version = PackageUtils.packageName();
         if(version != null) {
-            String msg = String.format(ResUtils.getString(R.string.app_version), version);
+            String msg = String.format(ResUtilsKt.getTextRes(R.string.app_version), version);
             tv_app_version.setText(msg);
         }
     }

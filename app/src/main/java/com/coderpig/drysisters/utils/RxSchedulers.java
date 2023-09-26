@@ -8,6 +8,8 @@ import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
+import cn.coderpig.cp_base.utils.ResUtilsKt;
+import cn.coderpig.cp_base.utils.ToastUtilsKt;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -28,13 +30,13 @@ public class RxSchedulers {
 
     public static void processRequestException(Throwable e) {
         if(e instanceof ConnectException || e instanceof SocketException) {
-            ToastUtils.shortToast(ResUtils.getString(R.string.network_connected_exception));
+            ToastUtilsKt.shortToast(ResUtilsKt.getTextRes(R.string.network_connected_exception));
         } else if(e instanceof SocketTimeoutException) {
-            ToastUtils.shortToast(ResUtils.getString(R.string.network_socket_time_out));
+            ToastUtilsKt.shortToast(ResUtilsKt.getTextRes(R.string.network_socket_time_out));
         } else if(e instanceof JsonSyntaxException) {
-            ToastUtils.shortToast(ResUtils.getString(R.string.network_json_syntax_exception));
+            ToastUtilsKt.shortToast(ResUtilsKt.getTextRes(R.string.network_json_syntax_exception));
         } else if(e instanceof UnknownHostException) {
-            ToastUtils.shortToast(ResUtils.getString(R.string.network_unknown_host));
+            ToastUtilsKt.shortToast(ResUtilsKt.getTextRes(R.string.network_unknown_host));
         } else {
             Timber.d(e.getMessage());
         }

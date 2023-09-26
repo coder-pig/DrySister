@@ -1,4 +1,7 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
 
 def depend_android = rootProject.ext.depend_android
 def depend_lib = rootProject.ext.depend_lib
@@ -56,6 +59,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation project(path: ':cp-base')
     annotationProcessor depend_lib["glide-compiler"]
     implementation depend_lib["timber"]
 

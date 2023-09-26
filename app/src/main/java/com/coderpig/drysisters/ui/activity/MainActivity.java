@@ -22,8 +22,9 @@ import com.coderpig.drysisters.ui.fragment.SubwayFragment;
 import com.coderpig.drysisters.ui.fragment.ToolsFragment;
 import com.coderpig.drysisters.ui.fragment.WeatherFragment;
 import com.coderpig.drysisters.utils.PackageUtils;
-import com.coderpig.drysisters.utils.ResUtils;
 import com.google.android.material.navigation.NavigationView;
+
+import cn.coderpig.cp_base.utils.ResUtilsKt;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -63,10 +64,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void initData() {
         mFgManager.beginTransaction().replace(R.id.cly_main_content,
                 LittleSisterFragment.newInstance(), DryConstant.FG_LITTLE_SISTER).commit();
-        toolbar.setTitle(ResUtils.getString(R.string.menu_see_little_sister));
+        toolbar.setTitle(ResUtilsKt.getTextRes(R.string.menu_see_little_sister));
         String version = PackageUtils.packageName();
         if(version != null) {
-            String msg = String.format(ResUtils.getString(R.string.menu_drysister_version), version);
+            String msg = String.format(ResUtilsKt.getTextRes(R.string.menu_drysister_version), version);
             tv_nav_title.setText(msg);
         }
     }
@@ -78,35 +79,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (mFgManager.findFragmentByTag(DryConstant.FG_LITTLE_SISTER) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             LittleSisterFragment.newInstance(), DryConstant.FG_LITTLE_SISTER).commit();
-                    toolbar.setTitle(ResUtils.getString(R.string.menu_see_little_sister));
+                    toolbar.setTitle(ResUtilsKt.getTextRes(R.string.menu_see_little_sister));
                 }
                 break;
             case R.id.nav_see_news:
                 if (mFgManager.findFragmentByTag(DryConstant.FG_NEWS) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             NewsFragment.newInstance(), DryConstant.FG_NEWS).commit();
-                    toolbar.setTitle(ResUtils.getString(R.string.menu_see_news));
+                    toolbar.setTitle(ResUtilsKt.getTextRes(R.string.menu_see_news));
                 }
                 break;
             case R.id.nav_use_check_weather:
                 if (mFgManager.findFragmentByTag(DryConstant.FG_WEATHER) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             WeatherFragment.newInstance(), DryConstant.FG_WEATHER).commit();
-                    toolbar.setTitle(ResUtils.getString(R.string.menu_use_check_weather));
+                    toolbar.setTitle(ResUtilsKt.getTextRes(R.string.menu_use_check_weather));
                 }
                 break;
             case R.id.nav_use_check_subway:
                 if (mFgManager.findFragmentByTag(DryConstant.FG_SUBWAY) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             SubwayFragment.newInstance(), DryConstant.FG_SUBWAY).commit();
-                    toolbar.setTitle(ResUtils.getString(R.string.menu_use_check_subway));
+                    toolbar.setTitle(ResUtilsKt.getTextRes(R.string.menu_use_check_subway));
                 }
                 break;
             case R.id.nav_use_tools:
                 if (mFgManager.findFragmentByTag(DryConstant.FG_TOOLS) == null) {
                     mFgManager.beginTransaction().replace(R.id.cly_main_content,
                             ToolsFragment.newInstance(), DryConstant.FG_TOOLS).commit();
-                    toolbar.setTitle(ResUtils.getString(R.string.menu_use_tools));
+                    toolbar.setTitle(ResUtilsKt.getTextRes(R.string.menu_use_tools));
                 }
                 break;
             case R.id.nav_else_setting:

@@ -5,6 +5,8 @@ import android.content.pm.PackageManager;
 
 import com.coderpig.drysisters.DrySisterApp;
 
+import java.util.Objects;
+
 /**
  * 描述：应用包相关的工具类
  *
@@ -14,10 +16,10 @@ import com.coderpig.drysisters.DrySisterApp;
 public class PackageUtils {
 
     public static int packageCode() {
-        PackageManager manager = DrySisterApp.getContext().getPackageManager();
+        PackageManager manager = Objects.requireNonNull(DrySisterApp.Companion.getInstance()).getPackageManager();
         int code = 0;
         try {
-            PackageInfo info = manager.getPackageInfo(DrySisterApp.getContext().getPackageName(), 0);
+            PackageInfo info = manager.getPackageInfo(DrySisterApp.Companion.getInstance().getPackageName(), 0);
             code = info.versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -26,10 +28,10 @@ public class PackageUtils {
     }
 
     public static String packageName() {
-        PackageManager manager = DrySisterApp.getContext().getPackageManager();
+        PackageManager manager = Objects.requireNonNull(DrySisterApp.Companion.getInstance()).getPackageManager();
         String name = null;
         try {
-            PackageInfo info = manager.getPackageInfo(DrySisterApp.getContext().getPackageName(), 0);
+            PackageInfo info = manager.getPackageInfo(DrySisterApp.Companion.getInstance().getPackageName(), 0);
             name = info.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
